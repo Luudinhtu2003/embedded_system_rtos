@@ -1,0 +1,10 @@
+12:51:22 **** Incremental Build of configuration Debug for project 001_simple_periodic ****
+make -j12 all 
+arm-none-eabi-size  001_simple_periodic.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33716	    532	   2364	  36612	   8f04	001_simple_periodic.elf
+Finished building: default.size.stdout
+ 
+
+12:51:22 Build Finished. 0 errors, 0 warnings. (took 345ms)
+

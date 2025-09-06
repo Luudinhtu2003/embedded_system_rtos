@@ -1,0 +1,28 @@
+12:53:09 **** Incremental Build of configuration Debug for project 002_Non_Preemptive_Event_Triggered ****
+make -j12 all 
+arm-none-eabi-size  002_Non_Preemptive_Event_Triggered.elf 
+   text	   data	    bss	    dec	    hex	filename
+  41108	    600	   2808	  44516	   ade4	002_Non_Preemptive_Event_Triggered.elf
+Finished building: default.size.stdout
+ 
+12:53:19 **** Incremental Build of configuration Debug for project 002_Non_Preemptive_Event_Triggered ****
+make -j12 all 
+arm-none-eabi-size  002_Non_Preemptive_Event_Triggered.elf 
+   text	   data	    bss	    dec	    hex	filename
+  41108	    600	   2808	  44516	   ade4	002_Non_Preemptive_Event_Triggered.elf
+Finished building: default.size.stdout
+ 
+12:58:31 **** Incremental Build of configuration Debug for project 003_multi_task ****
+make -j12 all 
+arm-none-eabi-size  003_multi_task.elf 
+   text	   data	    bss	    dec	    hex	filename
+  52888	    508	  85212	 138608	  21d70	003_multi_task.elf
+Finished building: default.size.stdout
+ 
+12:59:57 **** Incremental Build of configuration Debug for project 003_multi_task ****
+make -j12 all 
+arm-none-eabi-size  003_multi_task.elf 
+   text	   data	    bss	    dec	    hex	filename
+  52888	    508	  85212	 138608	  21d70	003_multi_task.elf
+Finished building: default.size.stdout
+ 
