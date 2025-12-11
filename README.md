@@ -112,5 +112,35 @@ Each scheduling model is analyzed, designed, implemented, and tested on STM32 ha
 - **Lưu Đình Tú — 20213016**  
   Responsible for *multi-task scheduling models* (Time-Slice Priority, RMS, EDF). *(This is me.)*
 
+
 ---
+## References / Further Reading
+
+This project is supported by the following reference materials included in the repository:
+
+- **Course Slides**  
+  Located in the `./slide/` directory.  
+  These slides provide theoretical foundations on real-time systems, task models, RMS/EDF schedulability theory, TT/ET scheduling principles, and STM32 embedded development.
+
+- **Final Report — `finalEmbedded.pdf`**  
+  A comprehensive document summarizing system design, task timing analysis, scheduler implementation, experiment results, and conclusions.  
+  This file is available at the root of the repository.
+
+- **Mastering the FreeRTOS Real Time Kernel – A Hands-On Tutorial Guide** 
+  (Highly recommended for mastering RTOS scheduling):  
+  https://www.freertos.org/media/2018/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf
+
+---
+## Project Structure
+Below is the folder structure as implemented in this repository:
+
+project_root/
+├── multi_task/
+│ ├── 003_time_slide/
+│ ├── EDFSchedule/
+│ └── RMS/ProjectV3/
+│
+└── single_task/
+├── 001_simple_periodic/
+└── 002_Non_Preemptive_Event_Triggered/
 
