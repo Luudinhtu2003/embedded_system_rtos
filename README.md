@@ -114,16 +114,3 @@ Each scheduling model is analyzed, designed, implemented, and tested on STM32 ha
 
 ---
 
-## Project Structure (suggested)
-```txt
-├── src/
-│   ├── scheduler_tt/
-│   ├── scheduler_rms/
-│   ├── scheduler_edf/
-│   └── priority_scheduler/
-├── docs/
-│   ├── analysis/
-│   └── diagrams/
-├── include/
-├── README.md
-└── LICENSE
