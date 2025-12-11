@@ -1,240 +1,129 @@
+## Real-Time Task Scheduling Project
 
-Real-Time Task Scheduling Project
-Introduction
+## Introduction
+This repository contains the assignments, reports, and source code developed for the final examination project of the *Embedded Systems* course.  
+The project focuses on analyzing, designing, and implementing **real-time scheduling algorithms (RTOS Scheduling)** on an **STM32 microcontroller**.
 
-This repository contains the assignments, reports, and source code developed for the final examination project of the Embedded Systems course. The project focuses on analyzing, designing, and implementing real-time scheduling mechanisms (RTOS Scheduling) on an STM32 microcontroller.
+The system supports several scheduling models:
 
-The system includes the following scheduling models:
+### Single-Task Scheduling
+- Time-Triggered (TT)  
+- Event-Triggered (ET)
 
-Single-task Models
+### Multi-Task Scheduling
+- Time-Slice with Priority Scheduling  
+- Rate Monotonic Scheduling (RMS)  
+- Earliest Deadline First (EDF)
 
-Time-Triggered (TT)
+This project demonstrates the complete workflow of designing a real-time embedded system: task modeling, timing constraints analysis, scheduler implementation, and verification on hardware.
 
-Event-Triggered (ET)
+---
 
-Multi-task Models
+## Requirements
 
-Time-Slice with Priority Scheduling
+### Functional Requirements
+- Read temperature and humidity sensor data periodically.  
+- Retrieve real-time clock (RTC) data accurately.  
+- Display sensor data and time on an LCD.  
+- Transmit system data to a computer via UART.  
+- Receive control commands from the PC to adjust runtime parameters.
 
-Rate Monotonic Scheduling (RMS)
+### Scheduling Requirements
+- Configure task periods, deadlines, and priorities.  
+- Implement TT and ET scheduling in single-task mode.  
+- Implement RMS, EDF, and priority scheduling in multi-task mode.  
+- Guarantee deterministic, schedulable real-time behavior.
 
-Earliest Deadline First (EDF)
+---
 
-This project demonstrates the full workflow of building a real-time embedded system:
-task analysis, timing constraint definition, scheduler implementation, and verification on actual hardware.
+## Task Set and Timing Specifications
 
-Requirements
-Functional Requirements
+### Temperature Measurement Task
+- **Function:** Read temperature sensor values.  
+- **Period:** 2–3 seconds (slow-changing signal).  
+- **Type:** Periodic.
 
-Read temperature data from a sensor at a specified sampling period.
+### Real-Time Clock (RTC) Task
+- **Function:** Obtain current timestamp and forward to display task.  
+- **Period:** ≤ 1 second.  
+- **Type:** High-priority periodic.
 
-Measure real-time clock (RTC) values and provide accurate time updates.
+### Temperature Display Task
+- **Function:** Display temperature data on LCD/UART.  
+- **Period:** ≥ 2–3 seconds (depends on measurement task).  
+- **Type:** Periodic.
 
-Display temperature, humidity, and real-time data on an LCD.
+### Real-Time Clock Display Task
+- **Function:** Update time display on LCD/UART.  
+- **Period:** 1 second (fixed).  
+- **Type:** High-priority periodic.
 
-Transmit system data to a computer via UART.
+### Humidity Measurement Task
+- **Function:** Read humidity sensor data.  
+- **Period:** 2–3 seconds.  
+- **Type:** Periodic.
 
-Receive control commands from the computer to adjust operational parameters.
+### Humidity Display Task
+- **Function:** Display humidity on LCD/UART.  
+- **Period:** 4–5 seconds.  
+- **Type:** Periodic.
 
-Scheduling Requirements
+---
 
-Configure task timing: periods, priorities, deadlines.
+## Implemented Scheduling Models
 
-Implement time-triggered and event-triggered single-task schedulers.
+### Time-Triggered Scheduling
+- Simple periodic TT scheduler  
+- Non-preemptive event-triggered scheduler  
 
-Implement RMS, EDF, and priority-based scheduling for multi-task execution.
+### Multi-Task Real-Time Scheduling
 
-Ensure deterministic behavior and validate task schedulability.
+#### Rate Monotonic Scheduling (RMS)
+- Frequency-based fixed priorities  
+- Schedulable periodic task implementation  
 
-Task Set and Timing Requirements
-1. Temperature Measurement Task
+#### Earliest Deadline First (EDF)
+- Dynamic priority based on deadlines  
+- Fully implemented EDF dispatcher  
 
-Function: Reads temperature sensor values.
+### Priority-Based Scheduling
+- Time-slicing  
+- Static priority configuration  
+- Demonstration of preemptive execution  
 
-Timing: Temperature changes slowly → period 2–3 seconds.
+---
 
-Type: Periodic.
+## Overview
+This project explores and implements various real-time scheduling algorithms to ensure that all tasks meet their timing constraints while maintaining efficiency and system stability.
 
-2. Real-Time Clock (RTC) Task
-
-Function: Retrieves current time and sends it to the display task.
-
-Timing: Must show correct time → period ≤ 1 second.
-
-Type: Periodic, high priority.
-
-3. Temperature Display Task
-
-Function: Displays temperature on LCD/UART.
-
-Timing: Depends on measurement task → period ≥ 2–3 seconds.
-
-Type: Periodic.
-
-4. Real-Time Display Task
-
-Function: Updates the time display on LCD/UART.
-
-Timing: Must be precise → fixed 1-second period.
-
-Type: High-priority periodic task.
-
-5. Humidity Measurement Task
-
-Function: Reads humidity sensor data.
-
-Timing: Humidity changes slowly → period 2–3 seconds.
-
-Type: Periodic.
-
-6. Humidity Display Task
-
-Function: Displays humidity on LCD/UART.
-
-Timing: Does not require frequent updates → period 4–5 seconds.
-
-Type: Periodic.
-
-Implemented Scheduling Models
-Time-Triggered Scheduling
-
-Simple Periodic TT Scheduler
-
-Non-Preemptive Event-Triggered Scheduler
-
-Multi-Task Real-Time Scheduling
-
-Rate Monotonic Scheduling (RMS)
-
-Fixed-priority scheduling based on task frequency
-
-Designed and implemented schedulable periodic tasks
-
-Earliest Deadline First (EDF)
-
-Dynamic priority assignment based on deadlines
-
-Fully implemented EDF task dispatcher
-
-Priority-Based Scheduling
-
-Priority with Time-Slice
-
-Execution analysis and configuration
-
-Preemptive scheduling behavior
-
-Author
-
-Phạm Huy Tuyên — 20213031
-Responsible for single-task scheduling models (Time-Triggered and Event-Triggered).
-
-Lưu Đình Tú — 20213016
-Responsible for multi-task scheduling models, including Time-Slice with Priority, RMS, and EDF. (This is me.)
-Overview
-
-This project focuses on the analysis, design, and implementation of real-time scheduling algorithms (RTOS Scheduling) for an embedded system. The goal is to ensure that all tasks meet their timing constraints while maintaining system stability and efficient resource utilization.
-
-Several scheduling models are explored and implemented, including:
-
-Time-Triggered (TT) Scheduling
-
-Event-Triggered (ET) Scheduling
-
-Rate Monotonic Scheduling (RMS)
-
-Earliest Deadline First (EDF)
-
-Priority-Based Scheduling
-
-The system performs sensing, processing, and display operations for temperature, humidity, and real-time clock data.
-
-Task Set and Timing Requirements
-1. Temperature Measurement Task
-
-Function: Reads temperature sensor data.
-
-Timing Requirements: Temperature changes slowly over time.
-
-Period: 2–3 seconds.
-
-Type: Periodic task.
-
-2. Real-Time Clock (RTC) Task
-
-Function: Obtains the current timestamp and forwards it to the display task.
-
-Timing Requirements: Must maintain accurate real-time information.
-
-Period: ≤ 1 second.
-
-Type: High-priority periodic task.
-
-3. Temperature Display Task
-
-Function: Receives temperature data and displays it via LCD/UART.
-
-Timing Requirements: Depends on the temperature measurement task.
-
-Period: ≥ temperature measurement period (2–3 seconds or higher).
-
-Type: Periodic task.
-
-4. Real-Time Clock Display Task
-
-Function: Updates the time display via LCD/UART.
-
-Timing Requirements: Must refresh the displayed time at a fixed rate to ensure accuracy.
-
-Period: 1 second (fixed).
-
-Type: High-priority periodic task.
-
-5. Humidity Measurement Task
-
-Function: Measures humidity sensor data.
-
-Timing Requirements: Humidity also changes slowly.
-
-Period: 2–3 seconds.
-
-Type: Periodic task.
-
-6. Humidity Display Task
-
-Function: Displays humidity information via LCD/UART.
-
-Timing Requirements: Does not require rapid updates.
-
-Period: 4–5 seconds.
-
-Type: Periodic task.
-
-Implemented Scheduling Models
-🔹 Time-Triggered Scheduling
-
-Simple Periodic Time-Triggered Scheduler
-
-Non-Preemptive Event-Triggered Scheduler
-
-🔹 Multi-Task Real-Time Scheduling
-
-Rate Monotonic Scheduling (RMS)
-
-System modeling based on RMS
-
-Task implementation following frequency-based priorities
-
-Earliest Deadline First (EDF)
-
-System modeling based on deadlines
-
-Task implementation using EDF dynamic prioritization
-
-🔹 Priority-Based Scheduling
-
-Time slicing techniques
-
-Priority assignment and execution analysis
-
-Full implementation demonstrating preemptive scheduling behavior
+The implemented system performs sensing, processing, communication, and display operations for:
+- Temperature  
+- Humidity  
+- Real-Time Clock (RTC)  
+
+Each scheduling model is analyzed, designed, implemented, and tested on STM32 hardware to ensure correct real-time behavior.
+
+---
+
+## Authors
+- **Phạm Huy Tuyên — 20213031**  
+  Responsible for *single-task scheduling models* (Time-Triggered & Event-Triggered).
+
+- **Lưu Đình Tú — 20213016**  
+  Responsible for *multi-task scheduling models* (Time-Slice Priority, RMS, EDF). *(This is me.)*
+
+---
+
+## Project Structure (suggested)
+```txt
+├── src/
+│   ├── scheduler_tt/
+│   ├── scheduler_rms/
+│   ├── scheduler_edf/
+│   └── priority_scheduler/
+├── docs/
+│   ├── analysis/
+│   └── diagrams/
+├── include/
+├── README.md
+└── LICENSE
