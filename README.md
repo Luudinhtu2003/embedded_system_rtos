@@ -107,10 +107,10 @@ Each scheduling model is analyzed, designed, implemented, and tested on STM32 ha
 
 ## Authors
 - **Phạm Huy Tuyên — 20213031**  
-  Responsible for *single-task scheduling models* (Time-Triggered & Event-Triggered).
+  Responsible for *single-task scheduling models* (Time-Triggered & Event-Triggered, Time-Slice Priority).
 
 - **Lưu Đình Tú — 20213016**  
-  Responsible for *multi-task scheduling models* (Time-Slice Priority, RMS, EDF). *(This is me.)*
+  Responsible for *multi-task scheduling models* (RMS, EDF). *(This is me.)*
 
 
 ---
